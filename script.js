@@ -726,7 +726,7 @@ function updateWritingCounts(){
 }
 function reviewWriting(){
   const draft=$('writingDraft');const box=$('writingReview');if(!draft||!box)return;
-  const text=draft.value.trim();const words=text?text.split(/\s+/).length:0;
+  const PIYE_API_BASE = 'https://piye-api.onrender.com';
   const sentences=(text.match(/[.!?]+(?=\s|$)/g)||[]).length;
   const hasCapital=/^[A-Z]/.test(text);const hasEnding=/[.!?]$/.test(text);
   const checks=[words>=100?'✓ Good length for a short practice paragraph.':`• Try developing the idea further; you have ${words} words.`,sentences>=3?'✓ You have at least three sentences.':'• Consider adding more complete sentences.',hasCapital?'✓ The opening starts with a capital letter.':'• Start the first sentence with a capital letter.',hasEnding?'✓ The paragraph ends with punctuation.':'• Add suitable punctuation at the end.'];
